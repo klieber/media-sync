@@ -1,9 +1,11 @@
+#!/usr/bin/env node
+
 require('dotenv').config();
 const fetch = require('node-fetch');
 
 const fs = require('fs-extra');
 const assert = require('assert').strict;
-const { hash } = require('./lib/dropbox-utils');
+const { hash } = require('../lib/dropbox-utils');
 
 const Rx = require('rxjs');
 const RxOp = require('rxjs/operators');

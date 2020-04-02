@@ -2,7 +2,9 @@
   "name": "media-sync",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "bin": {
+    "media-sync": "./bin/media-sync.js"
+  },
   "scripts": {
     "lint": "eslint . --fix",
     "test": "jest",
