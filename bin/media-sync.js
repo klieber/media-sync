@@ -23,31 +23,29 @@ const config = {
 };
 
 (async () => {
-
   Rx.defer(() => listFiles(config.source))
     .pipe(
-      RxOp.concatMap(response => response.entries),
-      RxOp.filter(file => file.name.match(/\.jpg$/)),
+      RxOp.concatMap((response) => response.entries),
+      RxOp.filter((file) => file.name.match(/\.jpg$/)),
       RxOp.take(5),
-      RxOp.concatMap(file => {
+      RxOp.concatMap((file) => {
         console.log(`downloading ${file.path_lower}`);
         return Rx.defer(() => downloadAndVerify(file));
       })
     )
     .subscribe(
-      filename => console.log('downloaded', filename),
-      error => console.error(error),
+      (filename) => console.log('downloaded', filename),
+      (error) => console.error(error),
       () => console.log('done')
     );
-
 })();
 
 async function listFiles(path) {
-  return await dbx.filesListFolder({path: path, include_non_downloadable_files: false});
+  return await dbx.filesListFolder({ path: path, include_non_downloadable_files: false });
 }
 
 async function download(filePath) {
-  const data = await dbx.filesDownload({path: filePath});
+  const data = await dbx.filesDownload({ path: filePath });
 
   await fs.mkdirp(config.target);
   await fs.writeFile(`${config.target}/${data.name}`, data.fileBinary, 'binary');
