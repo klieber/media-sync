@@ -6,9 +6,11 @@
     "media-sync": "./bin/media-sync.js"
   },
   "scripts": {
-    "lint": "eslint . --fix",
+    "lint:eslint": "eslint . --fix",
+    "lint:prettier": "prettier \"**/*.{json,md,scss,yaml,yml}\" --write",
+    "lint": "npm run lint:eslint && npm run lint:prettier",
     "test": "jest",
-    "pretest": "npm run lint",
+    "pretest": "npm run lint && tsc --noEmit",
     "watch": "jest --watch"
   },
   "husky": {
@@ -17,8 +19,11 @@
     }
   },
   "lint-staged": {
-    "*.js": [
-      "npm run lint"
+    "*.{js,ts}": [
+      "eslint --fix"
+    ],
+    "*.{json,md,scss,yaml,yml}": [
+      "prettier --write"
     ]
   },
   "author": "Kyle Lieber",
@@ -31,10 +36,16 @@
     "rxjs": "6.5.4"
   },
   "devDependencies": {
-    "babel-eslint": "10.1.0",
+    "@typescript-eslint/eslint-plugin": "2.26.0",
+    "@typescript-eslint/parser": "2.26.0",
     "eslint": "6.8.0",
+    "eslint-config-prettier": "6.10.1",
+    "eslint-plugin-prettier": "3.1.2",
     "husky": "4.2.3",
     "jest": "25.2.4",
-    "lint-staged": "10.1.1"
+    "lint-staged": "10.1.1",
+    "prettier": "2.0.2",
+    "ts-node": "8.8.1",
+    "typescript": "3.8.3"
   }
 }
