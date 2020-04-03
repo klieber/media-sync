@@ -28,7 +28,7 @@
     "dropbox": "4.0.30",
     "fs-extra": "9.0.0",
     "node-fetch": "2.6.0",
-    "rxjs": "6.5.4"
+    "rxjs": "6.5.5"
   },
   "devDependencies": {
     "babel-eslint": "10.1.0",
