@@ -28,26 +28,28 @@
  *     });
  */
 
-const crypto = require('crypto');
-const assert = require('assert').strict;
+import { createHash, Hash, HexBase64Latin1Encoding } from 'crypto';
+import { strict as assert } from 'assert';
 
 class DropboxContentHasher {
-  static BLOCK_SIZE = 4 * 1024 * 1024;
+  static BLOCK_SIZE: number = 4 * 1024 * 1024;
 
-  #algorithm;
-  #overallHasher;
-  #blockHasher;
-  #blockPos;
+  #algorithm: string;
+  #overallHasher: Hash | null;
+  #blockHasher: Hash | null;
+  #blockPos: number;
 
   constructor(algorithm = 'sha256', blockPos = 0) {
     this.#algorithm = algorithm;
-    this.#overallHasher = crypto.createHash(algorithm);
-    this.#blockHasher = crypto.createHash(algorithm);
+    this.#overallHasher = createHash(algorithm);
+    this.#blockHasher = createHash(algorithm);
     this.#blockPos = blockPos;
   }
 
-  update(data, inputEncoding) {
-    assert.ok(this.#overallHasher, 'Cannot call "update()" after "digest()" has already been called.');
+  update(data: string | Buffer, inputEncoding?: BufferEncoding): DropboxContentHasher {
+    if (!this.#overallHasher || !this.#blockHasher) {
+      assert.fail('Cannot call "update()" after "digest()" has already been called.');
+    }
 
     if (!Buffer.isBuffer(data)) {
       if (
@@ -66,13 +68,13 @@ class DropboxContentHasher {
     while (offset < data.length) {
       if (this.#blockPos === DropboxContentHasher.BLOCK_SIZE) {
         this.#overallHasher.update(this.#blockHasher.digest());
-        this.#blockHasher = crypto.createHash(this.#algorithm);
+        this.#blockHasher = createHash(this.#algorithm);
         this.#blockPos = 0;
       }
 
-      const spaceInBlock = DropboxContentHasher.BLOCK_SIZE - this.#blockPos;
-      const inputPartEnd = Math.min(data.length, offset + spaceInBlock);
-      const inputPartLength = inputPartEnd - offset;
+      const spaceInBlock: number = DropboxContentHasher.BLOCK_SIZE - this.#blockPos;
+      const inputPartEnd: number = Math.min(data.length, offset + spaceInBlock);
+      const inputPartLength: number = inputPartEnd - offset;
       this.#blockHasher.update(data.slice(offset, inputPartEnd));
 
       this.#blockPos += inputPartLength;
@@ -82,18 +84,20 @@ class DropboxContentHasher {
     return this;
   }
 
-  digest(encoding) {
-    assert.ok(this.#overallHasher, 'Cannot call "digest()" after it has already been called.');
+  digest(encoding: HexBase64Latin1Encoding): string {
+    if (!this.#overallHasher || !this.#blockHasher) {
+      assert.fail('Cannot call "digest()" after it has already been called.');
+    }
 
     if (this.#blockPos > 0) {
       this.#overallHasher.update(this.#blockHasher.digest());
       this.#blockHasher = null;
     }
 
-    let result = this.#overallHasher.digest(encoding);
+    const result: string = this.#overallHasher.digest(encoding);
     this.#overallHasher = null; // Make sure we can't use this object anymore.
     return result;
   }
 }
 
-module.exports = DropboxContentHasher;
+export default DropboxContentHasher;
