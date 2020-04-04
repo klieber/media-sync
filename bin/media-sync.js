@@ -5,6 +5,7 @@ require('dotenv').config();
 const { filter, concatMap } = require('rxjs/operators');
 const DropboxService = require('../lib/provider/dropbox-service');
 const DropboxProvider = require('../lib/provider/dropbox-provider');
+const ImageHandler = require('../lib/handler/image-handler');
 
 const { Dropbox } = require('dropbox');
 
@@ -20,15 +21,16 @@ const config = {
 
 const dropboxService = new DropboxService(dropboxClient);
 const dropboxProvider = new DropboxProvider(dropboxService, config.source, config.target);
+const imageHandler = new ImageHandler();
 
 dropboxProvider
   .list()
   .pipe(
-    filter((file) => file.path_lower.match(/\.jpg$/)),
+    filter((file) => imageHandler.supports(file.path_lower)),
     concatMap((file) => dropboxProvider.download(file))
   )
   .subscribe(
-    (filename) => console.log('downloaded', filename),
+    (filename) => imageHandler.handle(filename),
     (error) => console.error(error),
     () => console.log('done')
   );
