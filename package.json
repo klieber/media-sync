@@ -30,8 +30,10 @@
   "author": "Kyle Lieber",
   "license": "MIT",
   "dependencies": {
+    "date-fns": "2.11.1",
     "dotenv": "8.2.0",
     "dropbox": "4.0.30",
+    "exifr": "4.3.5",
     "node-fetch": "2.6.0"
   },
   "devDependencies": {
