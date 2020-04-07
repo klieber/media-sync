@@ -34,7 +34,8 @@
     "dotenv": "8.2.0",
     "dropbox": "4.0.30",
     "exifr": "4.3.5",
-    "node-fetch": "2.6.0"
+    "node-fetch": "2.6.0",
+    "winston": "3.2.1"
   },
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "7.8.3",
