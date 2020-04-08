@@ -9,10 +9,9 @@
     "lint:eslint": "eslint --cache --fix .",
     "lint:prettier": "prettier \"**/*.{json,md,scss,yaml,yml}\" --write --loglevel warn",
     "lint": "npm-run-all lint:*",
-    "test": "jest",
+    "test": "jest --collect-coverage",
     "pretest": "npm run lint",
-    "watch": "jest --watch",
-    "coverage": "jest --collect-coverage"
+    "watch": "jest --watch"
   },
   "husky": {
     "hooks": {
