@@ -14,16 +14,16 @@ const handlers = [new ImageHandler(process.env.TARGET_PATH)];
     const files = await provider.list();
     // TODO: remove the slice call
     await asyncForEach(files, async (file) => {
-      const handler = handlers.find((handler) => handler.supports(file.path_lower));
+      const handler = handlers.find((handler) => handler.supports(file.remoteFile));
       if (handler) {
         try {
-          const filename = await provider.download(file);
-          await handler.handle(filename);
+          await file.download();
+          await handler.handle(file);
         } catch (error) {
-          logger.error(`unable to download file: ${file.path_lower}: `, error);
+          logger.error(`unable to download file: ${file.remoteFile}: `, error);
         }
       } else {
-        logger.warn(`unsupported file: ${file.path_lower}`);
+        logger.warn(`unsupported file: ${file.remoteFile}`);
       }
     });
   } catch (error) {
