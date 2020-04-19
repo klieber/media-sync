@@ -11,19 +11,24 @@ const handlers = [new ImageHandler(process.env.TARGET_PATH)];
 
 (async () => {
   try {
-    const files = await provider.list();
-    // TODO: remove the slice call
-    await asyncForEach(files, async (file) => {
-      const handler = handlers.find((handler) => handler.supports(file.remoteFile));
+    asyncForEach(await provider.list(), async (mediaInfo) => {
+      const handler = handlers.find((handler) => handler.supports(mediaInfo.name));
+
       if (handler) {
         try {
-          await file.download();
-          await handler.handle(file);
+          logger.info(`downloading ${mediaInfo.name}`);
+          const mediaFile = await mediaInfo.get();
+
+          try {
+            await handler.handle(mediaFile);
+          } catch (error) {
+            logger.error(`unable to handle file: ${mediaInfo.name}: `, error);
+          }
         } catch (error) {
-          logger.error(`unable to download file: ${file.remoteFile}: `, error);
+          logger.error(`unable to download file: ${mediaInfo.name}: `, error);
         }
       } else {
-        logger.warn(`unsupported file: ${file.remoteFile}`);
+        logger.warn(`unsupported file: ${mediaInfo.name}`);
       }
     });
   } catch (error) {
