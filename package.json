@@ -34,7 +34,7 @@
     "dropbox": "4.0.30",
     "exifr": "4.3.5",
     "node-fetch": "2.6.0",
-    "tmp": "0.1.0",
+    "tmp": "0.2.0",
     "winston": "3.2.1"
   },
   "devDependencies": {
