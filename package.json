@@ -33,6 +33,8 @@
     "dotenv": "8.2.0",
     "dropbox": "5.2.1",
     "exifr": "5.0.3",
+    "ffprobe": "1.1.0",
+    "ffprobe-static": "3.0.0",
     "node-fetch": "2.6.0",
     "tmp": "0.2.1",
     "winston": "3.3.3"
