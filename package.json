@@ -29,7 +29,7 @@
   "author": "Kyle Lieber",
   "license": "MIT",
   "dependencies": {
-    "date-fns": "2.12.0",
+    "date-fns": "2.14.0",
     "dotenv": "8.2.0",
     "dropbox": "4.0.30",
     "exifr": "5.0.1",
