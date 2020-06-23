@@ -35,7 +35,7 @@
     "exifr": "5.0.2",
     "node-fetch": "2.6.0",
     "tmp": "0.2.1",
-    "winston": "3.3.2"
+    "winston": "3.3.3"
   },
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "7.10.1",
