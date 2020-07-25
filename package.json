@@ -31,7 +31,7 @@
   "dependencies": {
     "date-fns": "2.15.0",
     "dotenv": "8.2.0",
-    "dropbox": "4.0.30",
+    "dropbox": "5.2.1",
     "exifr": "5.0.3",
     "node-fetch": "2.6.0",
     "tmp": "0.2.1",
