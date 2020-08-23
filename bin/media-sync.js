@@ -7,12 +7,16 @@ const ProviderFactory = require('../lib/provider');
 const CopyHandler = require('../lib/handler/copy-handler');
 const { asyncForEach } = require('../lib/support/async-utils');
 
-const handlers = config.handlers.map(
-  (handlerConfig) => new CopyHandler(handlerConfig.extensions, handlerConfig.target)
-);
-
 (async () => {
   try {
+    if (!config.handlers || config.handlers.length < 1) {
+      throw new Error('At least one handler must be configured.');
+    }
+
+    const handlers = config.handlers.map(
+      (handlerConfig) => new CopyHandler(handlerConfig.extensions, handlerConfig.target)
+    );
+
     const provider = await ProviderFactory.create();
 
     let running = false;
