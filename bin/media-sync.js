@@ -1,13 +1,14 @@
 #!/usr/bin/env node
-
-require('dotenv').config();
+const config = require('../lib/config');
 
 const logger = require('../lib/support/logger').create('bin/media-sync');
 const provider = require('../lib/provider').create();
-const ImageHandler = require('../lib/handler/image-handler');
+const CopyHandler = require('../lib/handler/copy-handler');
 const { asyncForEach } = require('../lib/support/async-utils');
 
-const handlers = [new ImageHandler(process.env.TARGET_PATH)];
+const handlers = config.handlers.map(
+  (handlerConfig) => new CopyHandler(handlerConfig.extensions, handlerConfig.target)
+);
 
 (async () => {
   try {
