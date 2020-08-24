@@ -24,7 +24,7 @@ const { asyncForEach } = require('../lib/support/async-utils');
       if (!running) {
         running = true;
         try {
-          logger.info('starting synchronization');
+          logger.debug('starting synchronization');
           await asyncForEach(await provider.list(), async (mediaInfo) => {
             const handler = handlers.find((handler) => handler.supports(mediaInfo.name));
 
@@ -48,15 +48,15 @@ const { asyncForEach } = require('../lib/support/async-utils');
         } catch (error) {
           logger.error('unable to sync files: ', error);
         }
-        logger.info('synchronization finished');
+        logger.debug('synchronization finished');
         running = false;
       } else {
-        logger.info('skipping next scheduled synchronization (already running)');
+        logger.warn('skipping next scheduled synchronization (already running)');
       }
     });
 
     job.start();
   } catch (error) {
-    logger.error(error);
+    logger.error('unable to to start media-sync: ', error);
   }
 })();
