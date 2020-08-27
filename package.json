@@ -30,7 +30,7 @@
   "license": "MIT",
   "dependencies": {
     "cron": "1.8.2",
-    "date-fns": "2.15.0",
+    "date-fns": "2.16.0",
     "dropbox": "5.2.1",
     "exifr": "5.0.3",
     "ffprobe": "1.1.0",
