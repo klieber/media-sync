@@ -30,7 +30,7 @@ const { asyncForEach } = require('../lib/support/async-utils');
 
             if (handler) {
               try {
-                logger.info(`downloading ${mediaInfo.name}`);
+                logger.info(`retrieving ${mediaInfo.name}`);
                 const mediaFile = await mediaInfo.get();
 
                 try {
