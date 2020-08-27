@@ -57,6 +57,6 @@ const { asyncForEach } = require('../lib/support/async-utils');
 
     job.start();
   } catch (error) {
-    logger.error('unable to to start media-sync: ', error);
+    logger.error('unable to start media-sync: ', error);
   }
 })();

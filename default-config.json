@@ -1,10 +1,15 @@
 {
   "schedule": "0 */15 * * * *",
-  "provider": {
-    "type": "dropbox",
-    "source": "/Camera Uploads",
-    "token_store": "/data/.dropbox-token"
+  "providerDefaults": {
+    "dropbox": {
+      "token_store": "/data/.dropbox-token"
+    }
   },
+  "providers": [
+    {
+      "type": "dropbox"
+    }
+  ],
   "handlers": [
     {
       "extensions": ["jpg", "jpeg", "png"],
