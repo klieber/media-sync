@@ -16,7 +16,7 @@
       "target": "/media/photo"
     },
     {
-      "extensions": ["mp4"],
+      "extensions": ["mp4", "mov"],
       "target": "/media/video"
     }
   ]
