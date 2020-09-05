@@ -35,7 +35,7 @@
     "exifr": "5.0.3",
     "ffprobe": "1.1.0",
     "ffprobe-static": "3.0.0",
-    "node-fetch": "2.6.0",
+    "node-fetch": "2.6.1",
     "rc": "1.2.8",
     "tmp": "0.2.1",
     "winston": "3.3.3"
