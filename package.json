@@ -1,7 +1,16 @@
 {
-  "name": "media-sync",
+  "name": "@klieber/media-sync",
   "version": "1.0.0",
   "description": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/klieber/media-sync.git"
+  },
+  "files": [
+    "/bin/media-sync.js",
+    "/lib",
+    "!*.test.js"
+  ],
   "bin": {
     "media-sync": "./bin/media-sync.js"
   },
