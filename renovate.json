@@ -3,8 +3,10 @@
   "lockFileMaintenance": {
     "enabled": true
   },
-  "packageRules": [{
-    "updateTypes": ["minor", "patch", "pin", "digest"],
-    "automerge": true
-  }]
+  "packageRules": [
+    {
+      "updateTypes": ["minor", "patch", "pin", "digest"],
+      "automerge": true
+    }
+  ]
 }
