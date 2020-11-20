@@ -1,7 +1,7 @@
 # media-sync
 
 [![npm (scoped)](https://img.shields.io/npm/v/@klieber/media-sync)](https://www.npmjs.com/package/@klieber/media-sync)
-[![Build Status](https://travis-ci.com/klieber/media-sync.svg?branch=master)](https://travis-ci.com/klieber/media-sync)
+[![Build Status](https://github.com/klieber/media-sync/workflows/CI/badge.svg?branch=master&event=push)](https://github.com/klieber/media-sync/actions?query=branch%3Amaster+workflow%3ACI)
 [![Libraries.io dependency status for latest release, scoped npm package](https://img.shields.io/librariesio/release/npm/@klieber/media-sync)](https://libraries.io/npm/@klieber%2Fmedia-sync)
 [![codecov](https://codecov.io/gh/klieber/media-sync/branch/master/graph/badge.svg)](https://codecov.io/gh/klieber/media-sync)
 [![License](https://img.shields.io/npm/l/@klieber/media-sync)](LICENSE)
