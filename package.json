@@ -24,9 +24,7 @@
     "test": "jest --collect-coverage",
     "pretest": "npm run lint",
     "watch": "jest --watch",
-    "postinstall": "husky install",
-    "prepublishOnly": "pinst --disable",
-    "postpublish": "pinst --enable"
+    "prepare": "husky install"
   },
   "lint-staged": {
     "*.js": [
