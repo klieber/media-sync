@@ -51,7 +51,7 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "7.13.0",
-    "@babel/preset-env": "7.14.2",
+    "@babel/preset-env": "7.14.4",
     "@commitlint/cli": "12.1.4",
     "@commitlint/config-angular": "12.1.4",
     "babel-eslint": "10.1.0",
