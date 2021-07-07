@@ -1,4 +1,4 @@
-FROM node:16.4.0
+FROM node:16.4.1
 
 WORKDIR /usr/src/app
 
