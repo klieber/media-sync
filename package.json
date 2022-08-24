@@ -42,7 +42,7 @@
     "dist-exiftool": "10.53.0",
     "dropbox": "10.32.0",
     "ffprobe": "1.1.2",
-    "ffprobe-static": "3.0.0",
+    "ffprobe-static": "3.1.0",
     "node-exiftool": "2.3.0",
     "node-fetch": "3.2.10",
     "rc": "1.2.8",
