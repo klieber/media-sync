@@ -40,7 +40,7 @@
     "cron": "2.1.0",
     "date-fns": "2.29.3",
     "dist-exiftool": "10.53.0",
-    "dropbox": "10.33.0",
+    "dropbox": "10.34.0",
     "ffprobe": "1.1.2",
     "ffprobe-static": "3.1.0",
     "node-exiftool": "2.3.0",
