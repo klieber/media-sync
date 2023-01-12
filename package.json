@@ -37,7 +37,7 @@
   "author": "Kyle Lieber",
   "license": "MIT",
   "dependencies": {
-    "cron": "2.1.0",
+    "cron": "2.2.0",
     "date-fns": "2.29.3",
     "dist-exiftool": "10.53.0",
     "dropbox": "10.34.0",
