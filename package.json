@@ -55,7 +55,7 @@
     "@babel/preset-env": "7.22.5",
     "@commitlint/cli": "17.6.5",
     "@commitlint/config-angular": "17.6.5",
-    "@babel/eslint-parser": "7.11.0",
+    "@babel/eslint-parser": "7.22.5",
     "eslint": "7.32.0",
     "eslint-config-prettier": "8.8.0",
     "eslint-plugin-prettier": "4.2.1",
