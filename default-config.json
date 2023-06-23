@@ -12,7 +12,10 @@
   ],
   "handlers": [
     {
-      "extensions": ["jpg", "jpeg", "png", "gif"],
+      "extensions": ["jpg", "jpeg", "png", "gif", "webp"],
+      "conversions": {
+        "webp": "jpg"
+      },
       "target": "/media/photo"
     },
     {

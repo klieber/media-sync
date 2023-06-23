@@ -14,7 +14,7 @@ const { asyncForEach } = require('../lib/support/async-utils');
     }
 
     const handlers = config.handlers.map(
-      (handlerConfig) => new CopyHandler(handlerConfig.extensions, handlerConfig.target)
+      (handlerConfig) => new CopyHandler(handlerConfig.extensions, handlerConfig.conversions, handlerConfig.target)
     );
 
     const provider = await ProviderFactory.create();
