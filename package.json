@@ -46,7 +46,7 @@
     "node-exiftool": "2.3.0",
     "node-fetch": "3.3.1",
     "rc": "1.2.8",
-    "sharp": "0.32.1",
+    "sharp": "0.32.2",
     "tmp": "0.2.1",
     "winston": "3.10.0"
   },
