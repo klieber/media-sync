@@ -20,7 +20,10 @@
       "target": "/media/photo"
     },
     {
-      "extensions": ["mp4", "mov"],
+      "extensions": ["mp4", "mov", "3gp"],
+      "conversions": {
+        "3gp": "mp4"
+      },
       "target": "/media/video"
     }
   ]
