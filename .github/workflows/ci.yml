@@ -30,7 +30,9 @@ jobs:
         env:
           CI: true
       - name: Upload coverage
-        run: npx codecov --disable=gcov
+        uses: codecov/codecov-action@v5
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
   release:
     if: github.ref == 'refs/heads/master'
     needs: build
