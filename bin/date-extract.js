@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 const dateExtractor = require('../lib/support/date-extractor');
-const format = require('date-fns/format');
+const { format } = require('date-fns');
 const logger = require('../lib/support/logger').create('bin/date-extract');
 
 (async () => {
