@@ -24,7 +24,7 @@
     "test": "jest --collect-coverage",
     "pretest": "npm run lint",
     "watch": "jest --watch",
-    "prepare": "husky install"
+    "prepare": "husky"
   },
   "lint-staged": {
     "*.js": [
