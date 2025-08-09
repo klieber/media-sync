@@ -47,7 +47,7 @@
     "node-fetch": "3.3.2",
     "rc": "1.2.8",
     "sharp": "0.34.3",
-    "tmp": "0.2.4",
+    "tmp": "0.2.5",
     "winston": "3.17.0"
   },
   "devDependencies": {
