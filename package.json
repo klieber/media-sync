@@ -51,9 +51,9 @@
     "winston": "3.18.3"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "7.28.4",
+    "@babel/eslint-parser": "7.28.5",
     "@babel/plugin-transform-class-properties": "7.27.1",
-    "@babel/preset-env": "7.28.3",
+    "@babel/preset-env": "7.28.5",
     "@commitlint/cli": "19.8.1",
     "@commitlint/config-angular": "19.8.1",
     "@eslint/eslintrc": "3.3.1",
